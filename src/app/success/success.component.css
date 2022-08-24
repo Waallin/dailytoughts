@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+p, h1 {
+    padding: 10px;
+}
+
+a {
+    color: #0ed3f6;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#0EF6BE;
+    text-decoration: underline;
+}

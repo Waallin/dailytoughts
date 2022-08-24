@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Vote<span class="title">It.</span></h1>
+
+    <form #form="ngForm" (ngSubmit)="logIn(form)" novalidate>
+        <div class="inp">
+            <input name="email" ngModel type="text" placeholder="username...">
+            <input name="password" ngModel type="password" placeholder="password...">
+            <button>Log In</button>
+        </div>
+    </form>
+    <span class="signup" routerLink="signup">Sign up</span>
+</div>

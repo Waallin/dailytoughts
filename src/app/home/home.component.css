@@ -1,0 +1,16 @@
+* {
+    list-style: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    min-height: 100vh;
+}
+
+span {
+    color: #0ed3f6;
+}

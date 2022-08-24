@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Create Account</h1>
+
+    <form #form="ngForm" (ngSubmit)="signUp(form)" novalidate>
+        <div class="inp">
+            <input name="email" ngModel type="text" placeholder="username...">
+            <input name="password" ngModel type="password" placeholder="password...">
+            <button>Sign Up</button>
+        </div>
+    </form>
+    <span class="signup" routerLink="">Log in</span>
+</div>
