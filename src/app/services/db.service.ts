@@ -17,10 +17,10 @@ export class DbService {
     );
   }
 
-async insert(name:any, age:any) {
+async send(text:any, rating:any) {
   
-    const {data, error} = await this.supabase.from('practice').insert({
-      name: name, age: age
+    const {data, error} = await this.supabase.from('Posts').insert({
+      text: text, rating: rating
     })
     if (error) {
       console.log(error)
@@ -28,8 +28,4 @@ async insert(name:any, age:any) {
       console.log(data)
     }
     }
-
-    async read() {
-     
-      }
 }

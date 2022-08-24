@@ -1,9 +1,12 @@
 <div class="container">
-    <textarea name="" id="" cols="50" rows="3" placeholder="Spill your toughts..."></textarea>
+    <textarea [(ngModel)]="text" name="" id="" cols="50" rows="3" placeholder="Spill your toughts..."></textarea>
     <div class="row">
-        <span>Rating: </span><input type="number" class="rating">
-        <button>Send</button>
+        <span>Rating: </span><input [(ngModel)]="rating" type="number" class="rating" min="1" max="5">
+        <button (click)="send(text, rating)">Send</button>
     </div>
+    <p *ngIf="error">{{this.error}}</p>
 </div>
+
+
 
 <app-cards></app-cards>

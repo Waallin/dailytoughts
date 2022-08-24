@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   items: any[] = [];
 
   async ngOnInit(): Promise<void> {
-   /*const {data, error} = await this.supabase.from('practice').select('*')
+   const {data, error} = await this.supabase.from('Posts').select('*')
       let x = data?.length;
       
       if (error) {
@@ -34,19 +34,12 @@ export class HomeComponent implements OnInit {
       } else {
         data.forEach(item => {
           console.log(item)
-          let obj = {
-            name: item.name,
-            age: .age
-          }
-          this.items.push(obj)
+          this.items.push(item)
         })
       }
-      console.log(this.items) */
+      console.log(this.items)
     }
 
-  async insert(name: any, age: any) {
-    return await this.db.insert((name = this.name), (age = this.age));
-  }
 
 
 }
