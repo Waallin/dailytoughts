@@ -25,19 +25,8 @@ export class HomeComponent implements OnInit {
 
   items: any[] = [];
 
-  async ngOnInit(): Promise<void> {
-   const {data, error} = await this.supabase.from('Posts').select('*')
-      let x = data?.length;
-      
-      if (error) {
-        console.log(error)
-      } else {
-        data.forEach(item => {
-          console.log(item)
-          this.items.push(item)
-        })
-      }
-      console.log(this.items)
+ ngOnInit():void {
+
     }
 
 

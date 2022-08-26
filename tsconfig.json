@@ -20,7 +20,10 @@
     "module": "es2020",
     "lib": [
       "es2020",
-      "dom"
+      "dom",
+      "es5", 
+      "es6", 
+      "dom.iterable"
     ]
   },
   "angularCompilerOptions": {
@@ -28,5 +31,8 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  
 }
+
+

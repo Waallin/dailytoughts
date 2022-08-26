@@ -26,6 +26,8 @@ async send(text:any, rating:any) {
       console.log(error)
     } else {
       console.log(data)
+      window.location.reload()
+      
     }
     }
 }

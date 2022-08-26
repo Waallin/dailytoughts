@@ -1,12 +1,25 @@
 <div class="container">
-    <textarea [(ngModel)]="text" name="" id="" cols="50" rows="3" placeholder="Spill your toughts..."></textarea>
-    <div class="row">
-        <span>Rating: </span><input [(ngModel)]="rating" type="number" class="rating" min="1" max="5">
-        <button (click)="send(text, rating)">Send</button>
-    </div>
-    <p *ngIf="error">{{this.error}}</p>
+  <textarea
+    [(ngModel)]="text"
+    name=""
+    id=""
+    cols="50"
+    rows="3"
+    placeholder="Spill your toughts..."
+  ></textarea>
+  <div class="row">
+    <span>Rating: </span
+    ><input [(ngModel)]="rating" type="number" class="rating" min="1" max="5" />
+    <button (click)="send(text, rating)">Send</button>
+  </div>
+  <p *ngIf="error">{{ this.error }}</p>
 </div>
 
-
-
-<app-cards></app-cards>
+<div *ngFor="let item of db_items">
+  <app-cards
+    [db_name]="item.name"
+    [db_date]="item.date"
+    [db_text]="item.text"
+    [db_rating]="item.rating"
+  ></app-cards>
+</div>

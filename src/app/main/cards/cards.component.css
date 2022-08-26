@@ -27,3 +27,13 @@
 }
 
 
+.likes {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.3rem;
+}
+
+.rating {
+    padding: 10px;
+}
+
