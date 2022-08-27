@@ -18,7 +18,7 @@
 <div *ngFor="let item of db_items">
   <app-cards
     [db_name]="item.name"
-    [db_date]="item.date"
+    [db_date]="item.created_at"
     [db_text]="item.text"
     [db_rating]="item.rating"
   ></app-cards>
