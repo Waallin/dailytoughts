@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
 import { CardsComponent } from './main/cards/cards.component';
 import { UsernameComponent } from './username/username.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 //Firebase 
@@ -27,6 +28,7 @@ import { UsernameComponent } from './username/username.component';
     MainComponent,
     CardsComponent,
     UsernameComponent,
+    WelcomeComponent,
 
 
   ],

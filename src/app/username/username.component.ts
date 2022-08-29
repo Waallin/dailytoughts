@@ -37,9 +37,9 @@ export class UsernameComponent implements OnInit {
   }
   push() {
     this.db.newUser((this.id = this.id), (this.username = this.username))
-
-    this.router.navigateByUrl('goodjob')
-
+    if (this.username != '') {
+    this.router.navigateByUrl('welcome')
+    }
   }
 
 }

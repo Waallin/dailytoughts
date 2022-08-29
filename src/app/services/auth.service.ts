@@ -9,11 +9,10 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   username:any = '';
+  uuid: any = '';
 
   private supabase: SupabaseClient;
     
-
-
   constructor() {
     this.supabase = createClient(
       environment.supabaseURL,
@@ -23,6 +22,7 @@ export class AuthService {
     this.supabase.auth.onAuthStateChange((event, session) => {
       let userid = session?.user?.id;
       console.log('ditt id är ' + userid)
+      
 
     })
 
@@ -48,6 +48,8 @@ export class AuthService {
 
     }
   }
+
+  
 
 
 
