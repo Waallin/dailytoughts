@@ -7,6 +7,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
+
+  username:any = '';
+
   private supabase: SupabaseClient;
     
 
@@ -45,5 +48,7 @@ export class AuthService {
 
     }
   }
+
+
 
 }

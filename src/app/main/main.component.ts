@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
   //NgModel inputs
   text: any = '';
   rating: any = '';
+  username: any = '';
 
   error: string = '';
 
@@ -30,40 +31,68 @@ export class MainComponent implements OnInit {
       environment.supabaseURL,
       environment.supabaseKey
       );
+
+      
   }
 
   //Push-metod 
-  async send(text: any, rating: any) {
+  async send(text: any, rating: any)  {
+
     if (this.rating > 0 && this.rating < 10) {
-      this.db.send((text = this.text), (rating = this.rating))
+      this.db.send((text = this.text), (rating = this.rating), (this.username = this.username))
       this.text = '';
       this.rating = '';
     } else {
       this.error = 'You need to give your day a rate between 1 and 10';
     }
   }
-  async ngOnInit(): Promise<void> {
+    //check if username
+    async getProfile() {
+
+      const user = this.supabase.auth.user();
+      let userID = user?.id;
+
+      const {data, error} = await this.supabase
+      .from('profiles')
+      .select('username')
+      .eq('id', userID)
+      
+      if (error) {
+
+      } else {
+        this.username = data[0].username;
+      }
+  }
+
+  //get posts from db 
+  async getPosts() {
     const {data, error} = await this.supabase.from('Posts').select('*')
-
     let y = Object(data).reverse()
-
     if (error) {
-
       console.log(error)
     } else {
-      console.log(this.db_items)
+      //console.log(this.db_items)
 
       y.forEach((e:any) => {
         let obj = {
-          name: 'testing',
+
           text: e.text,
           created_at: e.created_at.slice(0, 10),
-          rating: e.rating
+          rating: e.rating,
+          username: e.username
         }
 
         this.db_items.push(obj)
 
       })
     }
+  }
+
+  async ngOnInit(): Promise<void> {
+
+    this.getProfile()
+    this.getPosts()
+    console.log(this.db_items)
+
   }
 }

@@ -20,9 +20,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  name: string = '';
-  age: any = '';
-
+  
   items: any[] = [];
 
  ngOnInit():void {

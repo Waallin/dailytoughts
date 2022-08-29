@@ -17,17 +17,16 @@ export class DbService {
     );
   }
 
-async send(text:any, rating:any) {
+async send(text:any, rating:any, username:any) {
   
     const {data, error} = await this.supabase.from('Posts').insert({
-      text: text, rating: rating
+      text: text, rating: rating, username: username
     })
     if (error) {
       console.log(error)
     } else {
-      console.log(data)
+      console.log([data])
       window.location.reload()
-      
     }
     }
 }
