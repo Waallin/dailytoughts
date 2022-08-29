@@ -10,6 +10,7 @@ import { SingupComponent } from './singup/singup.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
 import { CardsComponent } from './main/cards/cards.component';
+import { UsernameComponent } from './username/username.component';
 
 
 //Firebase 
@@ -25,6 +26,8 @@ import { CardsComponent } from './main/cards/cards.component';
     NavbarComponent,
     MainComponent,
     CardsComponent,
+    UsernameComponent,
+
 
   ],
   imports: [

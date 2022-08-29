@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { SupabaseClient, createClient, User } from '@supabase/supabase-js';
 import { zip } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -26,7 +27,7 @@ export class MainComponent implements OnInit {
   db_items: any[] = [];
 
 
-  constructor(private db: DbService, private auth: AuthService) {
+  constructor(private db: DbService, private auth: AuthService, private router:Router) {
     this.supabase = createClient(
       environment.supabaseURL,
       environment.supabaseKey
@@ -46,21 +47,34 @@ export class MainComponent implements OnInit {
       this.error = 'You need to give your day a rate between 1 and 10';
     }
   }
-    //check if username
+
+  //checking if username
+
+  checkUsername() {
+    
+  }
+    //Getting username
     async getProfile() {
 
+
       const user = this.supabase.auth.user();
+
+      console.log(user)
       let userID = user?.id;
+
 
       const {data, error} = await this.supabase
       .from('profiles')
       .select('username')
       .eq('id', userID)
-      
-      if (error) {
 
+  
+      if (!data?.length) {
+        this.router.navigateByUrl('username')
       } else {
+        console.log(data)
         this.username = data[0].username;
+        
       }
   }
 

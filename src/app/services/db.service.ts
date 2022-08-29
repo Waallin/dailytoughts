@@ -29,4 +29,18 @@ async send(text:any, rating:any, username:any) {
       window.location.reload()
     }
     }
+
+    async newUser(id:any, username:any) {
+  
+      const {data, error} = await this.supabase.from('profiles').insert({
+        id: id,  username: username
+      })
+      if (error) {
+        console.log(error)
+      } else {
+        console.log([data])
+        window.location.reload()
+      }
+      }
+
 }
